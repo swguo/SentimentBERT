@@ -45,9 +45,9 @@ def predict_sentiment(review):
 # 建立 Gradio 介面
 interface = gr.Interface(
     fn=predict_sentiment,
-    inputs=gr.Dropdown(choices=["The app is excellent!! However, if you have not defined your specific goal (e.g.: I will read 5 pages of a book every night before I fall asleep) you will stop using it, so keep that in mind.",
-                    "The interface is great and I love it overall; however, I'm giving it two Stars because it won't synchronize between my Samsung phone and Ipad.",
-                    "Not Free. Free upto only 5 Habbits."],
+    inputs=gr.Dropdown(choices=["The app is excellent!! ",                    
+                  "Not Free. Free upto only 5 Habbits.",
+                  "This app is very bad"],
                     label="Select a Review"),
     outputs="text",
     title="Sentiment Analysis",
