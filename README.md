@@ -37,8 +37,8 @@ This project implements a sentiment analysis system using a pre-trained BERT mod
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/your-username/sentiment-analysis-bert.git
-   cd sentiment-analysis-bert
+   git clone https://github.com/swguo/SentimentBERT.git
+   cd SentimentBERT
    ```
 
 2. Create a virtual environment and activate it:
@@ -66,12 +66,10 @@ python main.py --data_path 'data/reviews.csv' \
                --max_len 160 \
                --batch_size 16 \
                --epochs 4 \
-               --learning_rate 2e-5 \
-               --train_path 'data/train.csv' \
-               --test_path 'data/test.csv'
+               --learning_rate 2e-5
 ```
 
-The best model will be saved to `saved_models/best_model_state.bin`.
+The best model will be saved to `best_model_state.bin`.
 
 ### 2. Perform Inference
 
@@ -79,7 +77,7 @@ To perform inference on a test dataset:
 
 ```bash
 python inference.py --test_data_path 'data/test.csv' \
-                    --model_path 'saved_models/best_model_state.bin' \
+                    --model_path 'model/best_model_state.bin' \
                     --output_path 'data/infr_result.csv'
 ```
 
@@ -90,9 +88,8 @@ The results will be saved to `data/infr_result.csv`.
 To evaluate the inference results:
 
 ```bash
-python eval.py --test_data_path 'data/test.csv' \
-               --inference_results_path 'data/infr_result.csv' \
-               --class_names negative neutral positive
+python eval.py --inference_results_path 'data/infr_result.csv' \
+               --class_names negative neutral positive 
 ```
 
 This will display the confusion matrix and classification report.

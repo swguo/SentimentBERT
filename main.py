@@ -63,7 +63,7 @@ def main(data_path, model_name, max_len, batch_size, epochs, learning_rate):
         
         # 儲存最佳模型
         if val_acc > best_accuracy:
-            torch.save(model.state_dict(), 'best_model_state.bin')
+            torch.save(model.state_dict(), 'model/best_model_state.bin')
             best_accuracy = val_acc
 
     # 繪製訓練和驗證歷史
@@ -83,6 +83,5 @@ if __name__ == "__main__":
     parser.add_argument('--batch_size', type=int, default=16, help="Batch size.")
     parser.add_argument('--epochs', type=int, default=4, help="Number of epochs.")
     parser.add_argument('--learning_rate', type=float, default=2e-5, help="Learning rate.")
-    
     args = parser.parse_args()
     main(args.data_path, args.model_name, args.max_len, args.batch_size, args.epochs, args.learning_rate)
