@@ -1,5 +1,5 @@
 # main.py
-import torch
+import torch,os
 import torch.nn as nn
 import argparse
 import matplotlib.pyplot as plt
@@ -63,6 +63,8 @@ def main(data_path, model_name, max_len, batch_size, epochs, learning_rate):
         
         # 儲存最佳模型
         if val_acc > best_accuracy:
+            if not os.path.exists('model'):
+                os.mkdir('model')
             torch.save(model.state_dict(), 'model/best_model_state.bin')
             best_accuracy = val_acc
 
